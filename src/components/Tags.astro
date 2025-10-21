@@ -1,0 +1,23 @@
+---
+interface Props {
+    tags: string[];
+}
+
+const { tags } = Astro.props;
+---
+
+{
+    tags.map((tag: string, index: number) =>
+        index % 2 === 0 ? (
+            <span class="px-2 capitalize py-1 bg-green-500 text-white rounded-full text-xs hover:opacity-90">
+                <a href={"/articles/tag/" + tag}>
+                #{tag}</a>
+            </span>
+        ) : (
+            <span class="px-2 capitalize py-1 bg-indigo-500 text-white rounded-full text-xs hover:opacity-90">
+                <a href={"/articles/tag/" + tag}>
+                #{tag}</a>
+            </span>
+        )
+    )
+}
